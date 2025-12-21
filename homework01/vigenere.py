@@ -14,11 +14,11 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     key_len = len(keyword)
 
     for i, ch in enumerate(plaintext):
-        shift = ord(keyword[i % key_len]) - ord('a')
-        if 'A' <= ch <= 'Z':
-            ciphertext += chr((ord(ch) - ord('A') + shift) % 26 + ord('A'))
-        elif 'a' <= ch <= 'z':
-            ciphertext += chr((ord(ch) - ord('a') + shift) % 26 + ord('a'))
+        shift = ord(keyword[i % key_len]) - ord("a")
+        if "A" <= ch <= "Z":
+            ciphertext += chr((ord(ch) - ord("A") + shift) % 26 + ord("A"))
+        elif "a" <= ch <= "z":
+            ciphertext += chr((ord(ch) - ord("a") + shift) % 26 + ord("a"))
         else:
             ciphertext += ch
     return ciphertext
@@ -26,25 +26,25 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
 
 def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     """
-        Decrypts a ciphertext using a Vigenere cipher.
+    Decrypts a ciphertext using a Vigenere cipher.
 
-        >>> decrypt_vigenere("PYTHON", "A")
-        'PYTHON'
-        >>> decrypt_vigenere("python", "a")
-        'python'
-        >>> decrypt_vigenere("LXFOPVEFRNHR", "LEMON")
-        'ATTACKATDAWN'
-        """
+    >>> decrypt_vigenere("PYTHON", "A")
+    'PYTHON'
+    >>> decrypt_vigenere("python", "a")
+    'python'
+    >>> decrypt_vigenere("LXFOPVEFRNHR", "LEMON")
+    'ATTACKATDAWN'
+    """
     plaintext = ""
     keyword = keyword.lower()
     key_len = len(keyword)
 
     for i, ch in enumerate(ciphertext):
-        shift = ord(keyword[i % key_len]) - ord('a')
-        if 'A' <= ch <= 'Z':
-            plaintext += chr((ord(ch) - ord('A') - shift) % 26 + ord('A'))
-        elif 'a' <= ch <= 'z':
-            plaintext += chr((ord(ch) - ord('a') - shift) % 26 + ord('a'))
+        shift = ord(keyword[i % key_len]) - ord("a")
+        if "A" <= ch <= "Z":
+            plaintext += chr((ord(ch) - ord("A") - shift) % 26 + ord("A"))
+        elif "a" <= ch <= "z":
+            plaintext += chr((ord(ch) - ord("a") - shift) % 26 + ord("a"))
         else:
             plaintext += ch
     return plaintext
